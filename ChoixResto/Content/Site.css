@@ -40,3 +40,8 @@ textarea {
     color : red;
     font-weight : bold;
 }
+
+.custom-checkbox2{
+    width : 1.5rem;
+    height : 1.5rem;
+}

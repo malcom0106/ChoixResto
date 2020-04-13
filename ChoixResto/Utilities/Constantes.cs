@@ -8,5 +8,6 @@ namespace ChoixResto.Utilities
     public static class Constantes
     {
         public static string ID_SONDAGE = "idsondage";
+        public static string MON_CHOIX_RESTAURANT = "monchoixrestaurant";
     }
 }

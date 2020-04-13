@@ -31,5 +31,32 @@ namespace ChoixResto.Dal
             }
             return AVote;
         }
+
+        public bool AVote(string UserId, int SondageId, int RestoId)
+        {
+            bool Avote = false;
+            Vote vote = null;
+            try
+            {
+                vote = db.Votes.Where(s => s.SondageId == SondageId && s.Utilisateur.Id == UserId).FirstOrDefault();
+                if (vote == null)
+                {
+                    vote = new Vote();
+                    vote.SondageId = SondageId;
+                    vote.RestoId = RestoId;
+                    vote.UserId = UserId;
+                    db.Votes.Add(vote);
+                    db.SaveChanges();
+                    Avote = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+
+
+            return Avote;
+        }
     }
 }

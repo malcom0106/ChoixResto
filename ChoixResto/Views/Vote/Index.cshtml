@@ -2,7 +2,33 @@
 
 @{
     ViewBag.Title = "Index";
+    List<ChoixResto.Models.Resto> restos = (List<ChoixResto.Models.Resto>)ViewBag.Restos;
 }
 
-<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    <div class="jumbotron">
+        @if (!String.IsNullOrEmpty(ViewBag.Erreur))
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewBag.Erreur
+            </div>
+        }
+        @Html.AntiForgeryToken()
+        <div class="row">
+            @foreach (ChoixResto.Models.Resto resto in restos)
+            {
+                <div class="col-12 col-md-4">
+                    <input type="radio" class="custom-checkbox2" name="MonVote" id="@resto.RestoId" value="@resto.RestoId" required />
+                    <label class="form-check-label" for="@resto.RestoId">@resto.Nom</label>
+                </div>
+            }
+        </div>
+        <div class="text-center pt-3">
+            <input type="submit" value="Voté" class="btn btn-outline-success" />
+        </div>
+    </div>
+
+
+}
 

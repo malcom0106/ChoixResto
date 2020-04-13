@@ -197,6 +197,10 @@
     <Compile Include="Migrations\202004131242083_renaming table.Designer.cs">
       <DependentUpon>202004131242083_renaming table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004131504576_add ForeignKey.cs" />
+    <Compile Include="Migrations\202004131504576_add ForeignKey.Designer.cs">
+      <DependentUpon>202004131504576_add ForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -390,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004131242083_renaming table.resx">
       <DependentUpon>202004131242083_renaming table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004131504576_add ForeignKey.resx">
+      <DependentUpon>202004131504576_add ForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
