@@ -15,6 +15,7 @@ namespace ChoixResto.Dal
         public void test()
         {
             Vote vote = db.Votes.FirstOrDefault();
+
         }
     }
 }
