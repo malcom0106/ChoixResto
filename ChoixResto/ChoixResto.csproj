@@ -185,10 +185,12 @@
     <Compile Include="Migrations\202004130944479_MigrationInitiale.Designer.cs">
       <DependentUpon>202004130944479_MigrationInitiale.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004131238448_mise a jour Vote.cs" />
+    <Compile Include="Migrations\202004131238448_mise a jour Vote.Designer.cs">
+      <DependentUpon>202004131238448_mise a jour Vote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Dal.cs" />
-    <Compile Include="Models\IDal.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Resto.cs" />
@@ -369,6 +371,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004130944479_MigrationInitiale.resx">
       <DependentUpon>202004130944479_MigrationInitiale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004131238448_mise a jour Vote.resx">
+      <DependentUpon>202004131238448_mise a jour Vote.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
