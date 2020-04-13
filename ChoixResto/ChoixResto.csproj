@@ -175,6 +175,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RestoController.cs" />
+    <Compile Include="Controllers\SondageController.cs" />
+    <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="Dal\DalAccess.cs" />
     <Compile Include="Dal\DalSondage.cs" />
     <Compile Include="Dal\DalVote.cs" />
@@ -362,10 +365,13 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Resto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\Restaurants\" />
+    <Folder Include="Views\Sondage\" />
+    <Folder Include="Views\Vote\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
