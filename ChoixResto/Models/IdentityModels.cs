@@ -15,6 +15,7 @@ namespace ChoixResto.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Ajouter les revendications personnalisées de l’utilisateur ici
             return userIdentity;
+
         }
     }
 
@@ -31,5 +32,6 @@ namespace ChoixResto.Models
         }
         public DbSet<Sondage> Sondages { get; set; }
         public DbSet<Resto> Restos { get; set; }
+        public DbSet<Vote> Votes { get; set; }
     }
 }

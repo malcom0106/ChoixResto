@@ -7,11 +7,11 @@ namespace ChoixResto.Models
 {
     public class Dal : IDal
     {
-        private BddContext bdd;
+        private ApplicationDbContext bdd;
 
         public Dal()
         {
-            bdd = new BddContext();
+            bdd = new ApplicationDbContext();
         }
 
         public List<Resto> ObtientTousLesRestaurants()
