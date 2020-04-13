@@ -29,5 +29,7 @@ namespace ChoixResto.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Sondage> Sondages { get; set; }
+        public DbSet<Resto> Restos { get; set; }
     }
 }
