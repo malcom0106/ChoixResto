@@ -7,7 +7,7 @@ namespace ChoixResto.Models
 {
     public class Resto
     {
-        public int Id { get; set; }
+        public int RestoId { get; set; }
         public string Nom { get; set; }
         public string Telephone { get; set; }
     }
