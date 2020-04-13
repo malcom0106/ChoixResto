@@ -12,24 +12,25 @@ namespace ChoixResto.Dal
         {
         }
 
-    public void VerifierSondageDuJour()
+    public int? VerifierSondageDuJour()
         {
+            Sondage sondage = null;
             try
             {
-                Sondage sondage = null;
                 sondage = db.Sondages.Where(s => s.Date == DateTime.Today).FirstOrDefault();
                 if (sondage == null)
                 {
                     sondage = new Sondage();
                     sondage.Date = DateTime.Today;
                     db.Sondages.Add(sondage);
-                    db.SaveChanges();
+                    db.SaveChanges();                    
                 }
             }
             catch (Exception ex)
             {
                 string message = ex.Message;
             }
+            return sondage.SondageId;
         }
     }
 }
