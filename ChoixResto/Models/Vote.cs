@@ -6,6 +6,7 @@ using System.Web;
 
 namespace ChoixResto.Models
 {
+    [Table("Vote")]
     public class Vote
     {
         public int VoteId { get; set; }
