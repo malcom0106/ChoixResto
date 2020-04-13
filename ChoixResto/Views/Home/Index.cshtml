@@ -2,30 +2,83 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div class="jumbotron" id="MonJumbotron">
+        <h1 class="display-4">Avez vous voté aujourd'hui ?</h1>
+        <div class="text-center"><p class="lead" id="compte_a_rebours"></p></div>
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+@section scripts {
+    <script type="text/javascript">
+        function compte_a_rebours() {
+            var compte_a_rebours = document.getElementById("compte_a_rebours");
+            var date_actuelle = new Date();
+            var date_evenement = new Date(@ViewBag.DateButoire);
+            var total_secondes = (date_evenement - date_actuelle) / 1000;
+
+            var prefixe = "Sinon, ils vous restent ";
+            //if (total_secondes < 0) {
+            //    prefixe = "Compte à rebours terminé il y a "; // On modifie le préfixe si la différence est négatif
+            //    total_secondes = Math.abs(total_secondes); // On ne garde que la valeur absolue
+            //}
+
+            if (total_secondes > 0) {
+                var jours = Math.floor(total_secondes / (60 * 60 * 24));
+                var heures = Math.floor((total_secondes - (jours * 60 * 60 * 24)) / (60 * 60));
+                minutes = Math.floor((total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
+                secondes = Math.floor(total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
+
+                var et = "et";
+                var mot_jour = "jours";
+                var mot_heure = "heures";
+                var mot_minute = "minutes";
+                var mot_seconde = "secondes";
+
+                if (jours == 0) {
+                    jours = '';
+                    mot_jour = '';
+                }
+                else if (jours == 1) {
+                    mot_jour = "jour";
+                }
+
+                if (heures == 0) {
+                    heures = '';
+                    mot_heure = '';
+                }
+                else if (heures == 1) {
+                    mot_heure = "heure";
+                }
+
+                if (minutes == 0) {
+                    minutes = '';
+                    mot_minute = '';
+                }
+                else if (minutes == 1) {
+                    mot_minute = "minute";
+                }
+
+                if (secondes == 0) {
+                    secondes = '';
+                    mot_seconde = '';
+                    et = '';
+                }
+                else if (secondes == 1) {
+                    mot_seconde = "seconde";
+                }
+
+                if (minutes == 0 && heures == 0 && jours == 0) {
+                    et = "";
+                }
+
+                compte_a_rebours.innerHTML = prefixe + "<strong class=\"display-5\">" + jours + ' ' + mot_jour + ' ' + heures + ' ' + mot_heure + ' ' + minutes + ' ' + mot_minute + '</strong> ' + 'pour donner votre avis';
+            }
+            else {
+                compte_a_rebours.innerHTML = 'Compte à rebours terminé.';
+            }
+
+            var actualisation = setTimeout("compte_a_rebours();", 10000);
+        }
+        compte_a_rebours();
+    </script>
+}

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using ClassLibraryMR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace ChoixResto.Controllers
 {
@@ -10,20 +12,10 @@ namespace ChoixResto.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            DateTime date = DateTime.Today.AddDays(1).AddHours(11).AddMinutes(50);
+            long test = JavaScriptDateConverter.Convert(date);
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.DateButoire = test;
             return View();
         }
     }
