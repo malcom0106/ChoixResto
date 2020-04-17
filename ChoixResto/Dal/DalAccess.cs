@@ -12,6 +12,14 @@ namespace ChoixResto.Dal
 
         public DalAccess()
         {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             this.db = new ApplicationDbContext();
         }
     }

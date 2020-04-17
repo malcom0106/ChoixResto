@@ -9,6 +9,7 @@ namespace ChoixResto
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            
         }
     }
 }
